@@ -51,7 +51,7 @@
 |type|string|事件类型，对于推送ticket事件，其类型为SUITE_TICKET|
 |eventId|string|事件 uuid|
 |timestamp|number|unix timestamp|
-|sutieKey|string|套件的suiteKey|
+|suiteKey|string|套件的suiteKey|
 |suiteTicket|string|套件的 ticket|
 
 ISV需要将其中的suiteTicket 进行保存，在后续获得调用接口令牌时需要使用。
@@ -135,6 +135,7 @@ ISV需要将其中的suiteTicket 进行保存，在后续获得调用接口令�
 |字段|类型|说明|
 |---|---|:---|
 |suiteKey|string|套件 suiteKey|
+|suiteTicket|string|套件 ticket|
 |tenantId|string|租户 id|
 |timestamp|number long|unix timestamp, 毫秒时间戳|
 |signature|string|校验签名，HmacSHA256，加签方式看下文|
@@ -152,7 +153,7 @@ URLEncode( Base64( HmacSHA256( parameterMap ) ) )
 **示例请求:**
 
 ```
-GET https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&tenantId=tenanfsdf&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
+GET https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&suiteTicket=jotjaewiognwajgp&tenantId=tenanfsdf&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
 ```
 
 **返回参数:**
@@ -206,13 +207,14 @@ GET https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5
 |---|---|:---|
 |suiteKey|string|套件 suiteKey|
 |code|string|免登授权码 code|
+|suiteTicket|string|套件 ticket|
 |timestamp|number long|unix timestamp, 毫秒时间戳|
 |signature|string|校验签名，HmacSHA256，加签方式同获取 access_token|
 
 **示例请求:**
 
 ```
-GET https://open.yonyoucloud.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&code=sdfsdfwefewgewggv&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
+GET https://open.yonyoucloud.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&suiteTicket=jotjaewiognwajgp&code=sdfsdfwefewgewggv&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
 ```
 
 **返回参数:**
