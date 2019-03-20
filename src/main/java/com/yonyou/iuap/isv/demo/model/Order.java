@@ -65,6 +65,16 @@ public class Order {
      */
     private String resCode;
 
+    /**
+     * 应用的编码
+     */
+    private String appCode;
+
+    /**
+     * 应用的名称
+     */
+    private String appName;
+
     public String getUserId() {
         return userId;
     }
@@ -161,6 +171,22 @@ public class Order {
         this.resCode = resCode;
     }
 
+    public String getAppCode() {
+        return appCode;
+    }
+
+    public void setAppCode(String appCode) {
+        this.appCode = appCode;
+    }
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -176,6 +202,8 @@ public class Order {
                 ", orderSkuId='" + orderSkuId + '\'' +
                 ", productName='" + productName + '\'' +
                 ", resCode='" + resCode + '\'' +
+                ", appCode='" + appCode + '\'' +
+                ", appName='" + appName + '\'' +
                 '}';
     }
 }
