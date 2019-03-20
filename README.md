@@ -86,7 +86,9 @@ ISV需要将其中的suiteTicket 进行保存，在后续获得调用接口令�
 		"resCode": "diwork",
 		"skuName": "1.0",
 		"ts": 1540438152000,
-		"userId": "abc4a6d6-a5fa-45ae-8161-68fba6f0fabc"
+		"userId": "abc4a6d6-a5fa-45ae-8161-68fba6f0fabc",
+		"appCode": "open_ssfx23xsr",
+		"appName": "移动审批"
 	}
 }
 ```
@@ -113,6 +115,8 @@ ISV需要将其中的suiteTicket 进行保存，在后续获得调用接口令�
 |order.skuName|string|sku 名称|
 |order.ts|number (java Long)|订单时间戳|
 |order.userId|string|购买用户的友户通 id|
+|order.appCode|string|应用的编码|
+|order.appName|string|应用的名称|
 
 **注意：** 
 * `order` 对象为订单信息，通常情况 ISV 不需要解析该字段，ISV 可根据实际业务选择是否解析该字段。
