@@ -130,7 +130,7 @@ ISV需要将其中的suiteTicket 进行保存，在后续获得调用接口令�
 
 调用接口令牌 `access_token` 是套件调用开放平台业务接口的凭证，有效期为2小时。
 
-**接口地址:** `https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken`
+**接口地址:** `https://open.diwork.com/open-auth/suiteApp/getAccessToken`
 
 **请求方式:** `GET`
 
@@ -157,7 +157,7 @@ URLEncode( Base64( HmacSHA256( parameterMap ) ) )
 **示例请求:**
 
 ```
-GET https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&suiteTicket=jotjaewiognwajgp&tenantId=tenanfsdf&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
+GET https://open.diwork.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&suiteTicket=jotjaewiognwajgp&tenantId=tenanfsdf&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
 ```
 
 **返回参数:**
@@ -201,7 +201,7 @@ GET https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5
 
 获取到 `code` 后即可调用开放平台免登接口获得用户 id，租户 id 等信息，该接口说明如下：
 
-**接口地址:** `https://open.yonyoucloud.com/open-auth/suiteApp/getBaseInfoByCode`
+**接口地址:** `https://open.diwork.com/open-auth/suiteApp/getBaseInfoByCode`
 
 **请求方式:** `GET`
 
@@ -218,7 +218,7 @@ GET https://open.yonyoucloud.com/open-auth/suiteApp/getAccessToken?suiteKey=fbb5
 **示例请求:**
 
 ```
-GET https://open.yonyoucloud.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&suiteTicket=jotjaewiognwajgp&code=sdfsdfwefewgewggv&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
+GET https://open.diwork.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5b6-21fb-4156-8b73-3ec3ac389ab7&suiteTicket=jotjaewiognwajgp&code=sdfsdfwefewgewggv&timestamp=1547192727928&signature=7OzDhux%2FyJQt%2B9K2GK4E8YuX%2Fl30NYcnsbEO8D%2F0jCc%3D
 ```
 
 **返回参数:**
