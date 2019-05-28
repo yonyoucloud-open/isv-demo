@@ -231,8 +231,7 @@ GET https://open.diwork.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5
 |message|string|结果信息，若有错误该字段会返回具体错误信息|
 |data.yhtUserId|string|友户通用户 id|
 |data.tenantId|string|租户 id |
-|data.memberId|string|友空间用户 id |
-|data.qzId|string|友空间空间 id|
+
 
 
 **示例返回:**
@@ -244,8 +243,7 @@ GET https://open.diwork.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5
   "data": {
     "yhtUserId":"e7dc1fb1-7528-4ea4-9ce2-fc818awer3a6",
     "tenantId":"nolkqi8h",
-    "memberId":"41321",
-    "qzId":"16322"}
+  }
 }
 ```
 
