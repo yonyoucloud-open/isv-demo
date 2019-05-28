@@ -229,7 +229,7 @@ GET https://open.diwork.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5
 |---|---|:---|
 |code|string|结果码，正确返回 "00000"|
 |message|string|结果信息，若有错误该字段会返回具体错误信息|
-|data.yhtUserId|string|友互通用户 id|
+|data.yhtUserId|string|友户通用户 id|
 |data.tenantId|string|租户 id |
 |data.memberId|string|友空间用户 id |
 |data.qzId|string|友空间空间 id|
