@@ -96,4 +96,31 @@ public class OpenApiRequestService {
         LOGGER.error("请求开放平台接口失败，code: {}, message: {}", response.getCode(), response.getMessage());
         throw new RuntimeException("请求开放平台接口失败, code: " + response.getCode() + ", message: " + response.getMessage());
     }
+
+    public String requestForUpdStatus(String suiteKey, String tenantId,String orderId, String suiteTicket,
+                                      String suiteSecret) throws InvalidKeyException, NoSuchAlgorithmException, IOException {
+
+        Map<String, String> params = new HashMap<>();
+        // 除签名外的其他参数
+        params.put("suiteKey", suiteKey);
+        params.put("tenantId", tenantId);
+        params.put("orderId", orderId);
+        params.put("suiteTicket", suiteTicket);
+        params.put("timestamp", String.valueOf(System.currentTimeMillis()));
+        // 计算签名
+        String signature = SignHelper.sign(params, suiteSecret);
+        params.put("signature", signature);
+
+        // 请求
+        String requestUrl = openApiUrl + "/open-auth/suiteApp/updSuiteStatus";
+        GenericResponse<String> response = RequestTool.doGet(requestUrl, params, new TypeReference<GenericResponse<String>>() {});
+
+        if (response.isSuccess()) {
+            return response.getData();
+        }
+
+        LOGGER.error("请求开放平台接口失败，code: {}, message: {}", response.getCode(), response.getMessage());
+        throw new RuntimeException("请求开放平台接口失败, code: " + response.getCode() + ", message: " + response.getMessage());
+
+    }
 }

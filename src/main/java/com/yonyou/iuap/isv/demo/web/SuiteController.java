@@ -50,4 +50,24 @@ public class SuiteController {
         suiteService.saveSuiteAuth(suiteAuth);
         return response;
     }
+
+    @GetMapping("/suite/updSuiteStatus")
+    public String updSuiteStatus(@RequestParam String suiteKey, @RequestParam String tenantId,@RequestParam String orderId) throws NoSuchAlgorithmException, InvalidKeyException, IOException {
+        Suite suite = suiteService.getSuite(suiteKey);
+        if (suite == null) {
+            throw new RuntimeException("无效的套件或尚未初始化 suiteKey: " + suiteKey);
+        }
+
+        SuiteAuth suiteAuth = suiteService.getSuiteAuth(suite.getSuiteKey(), tenantId);
+        if (suiteAuth == null) {
+            suiteAuth = new SuiteAuth();
+            suiteAuth.setSuiteKey(suiteKey);
+            suiteAuth.setTenantId(tenantId);
+        }
+
+        String response = requestService.requestForUpdStatus(suite.getSuiteKey(), tenantId,orderId, suite.getSuiteTicket(), suite.getSuiteSecret());
+        LOGGER.info("成功修改套件状态: suiteKey: {}, tenantId: {}", suiteKey, tenantId);
+        suiteService.saveSuiteAuth(suiteAuth);
+        return response;
+    }
 }
