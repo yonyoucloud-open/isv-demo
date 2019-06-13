@@ -332,3 +332,25 @@ GET https://open.diwork.com/open-auth/suiteApp/getBaseInfoByCode?suiteKey=fbb5f5
 * `CHECK_URL` 是开放平台在进行事件订阅时确定开发者填写的回调地址有效性时推送的
 * 不同的事件推送的变更 id 列表字段是不同的，请参考上表的 `id 字段`
 
+php 企业自建获取access_token demo
+#coding utf-8
+import requests
+import json
+import hmac
+import time
+import base64
+import urllib
+
+'''
+根据appkey secret 获取token
+'''
+def get_token():
+    app_key = '' #应用的app key
+    secret = '' #应用的secret
+    url = "http://open.yonyoucloud.com/open-auth/selfAppAuth/getAccessToken?appKey={}&timestamp={}&signature={}"
+    ts = int(time.time())
+    params = "appKey{}timestamp{}".format(app_key,ts)
+    signature =  urllib.parse.quote(base64.b64encode(hmac.new(secret.encode('utf-8'),params.encode('utf-8'),digestmod=hashlib.sha256).digest()))
+    response = requests.get(url.format(app_key,ts,signature)).text
+    req_json = json.loads(response)
+    return req_json['data']['access_token']
