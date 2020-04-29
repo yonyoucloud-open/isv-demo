@@ -81,10 +81,15 @@ public enum IsvEventType {
      * 用户删除
      */
     USER_DELETE,
-
+    /**
+     * 用户注销事件
+     */
+    DELETE_DIWORKSESSION,
 
     /** UNKNOWN **/
-    UNKNOWN
+    UNKNOWN,
+
+    APPROVAL_MEG
 
 
 }

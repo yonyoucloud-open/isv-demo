@@ -37,7 +37,6 @@ public class PushAuthController {
 
     @PostMapping("/open/auth_push")
     public String authCallbackHandler(@RequestBody EncryptionHolder holder) throws IOException {
-
         // 构建解密验签处理对象
         IsvEventCrypto crypto = new IsvEventCrypto(suiteConfig.getSuiteSecret(), suiteConfig.getEncodingAESKey(), suiteConfig.getSuiteKey());
         // 验签解密后的消息体
@@ -53,14 +52,17 @@ public class PushAuthController {
 
         // 套件租户授权事件
         if (content.getType() == IsvEventType.SUITE_AUTH) {
-            LOGGER.info("新的授权事件, suitekey: {}, authTenantId: {}", content.getSuiteKey(), content.getAuthTenantId());
+            LOGGER.info("新的授权事件, suitekey: {}, authTenantId: {},tenantName:{}", content.getSuiteKey(), content.getAuthTenantId(),content.getTenantName());
             LOGGER.info("order id: {}", content.getOrder());
             handleAuthPush(content);
+            return "success";
         }
 
         // 处理成功，回复 "success" 告知开放平台，否则开放平台会重试推送，每分钟一次，重试 60 次
         return "success";
     }
+
+
 
     /**
      * 处理套件票据 (suiteTicket) 推送事件

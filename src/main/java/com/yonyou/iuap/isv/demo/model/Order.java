@@ -9,7 +9,10 @@ public class Order {
      * 购买用户的友户通 userId
      */
     private String userId;
-
+    /**
+     * 租户名称
+     */
+    private String tenantName;
     /**
      * 云市场的订单 id，唯一标识了该订单
      */
@@ -30,6 +33,7 @@ public class Order {
      */
     private String email;
 
+    private String userName;
     /**
      * 套件过期日期 unix 时间戳，当前有效时间 + lease * 1 month
      */
@@ -70,6 +74,7 @@ public class Order {
      */
     private String appCode;
 
+    private int accountQuantity;
     /**
      * 应用的名称
      */
@@ -204,6 +209,32 @@ public class Order {
                 ", resCode='" + resCode + '\'' +
                 ", appCode='" + appCode + '\'' +
                 ", appName='" + appName + '\'' +
+                ", tenantName='" + tenantName + '\'' +
+                ", accountQuantity='" + accountQuantity + '\'' +
                 '}';
+    }
+
+    public String getTenantName() {
+        return tenantName;
+    }
+
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
+    }
+
+    public void setAccountQuantity(int accountQuantity) {
+        this.accountQuantity = accountQuantity;
+    }
+
+    public int getAccountQuantity() {
+        return accountQuantity;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
