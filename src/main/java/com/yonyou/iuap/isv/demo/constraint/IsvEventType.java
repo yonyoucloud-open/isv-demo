@@ -84,10 +84,15 @@ public enum IsvEventType {
     /**
      * 用户注销事件
      */
-    DELETE_DIWORKSESSION,
+    FRONT_LOGOUT,
 
     /** UNKNOWN **/
     UNKNOWN,
+
+    /**
+     * 元数据修改
+     */
+    META_ALTER,
 
     APPROVAL_MEG
 

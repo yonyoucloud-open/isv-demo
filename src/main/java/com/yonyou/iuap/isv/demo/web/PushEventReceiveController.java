@@ -79,7 +79,6 @@ public class PushEventReceiveController {
             case DEPT_DELETE:
                 LOGGER.info("事件类型: {}, 说明: 租户 {} 下部门删除, 部门变更 id: {}", content.getType(), content.getTenantId(), Arrays.toString(content.getDeptId()));
                 break;
-
             case USER_ADD:
                 LOGGER.info("事件类型: {}, 说明: 租户 {} 下用户增加，用户 id: {}", content.getType(), content.getTenantId(), Arrays.toString(content.getUserId()));
                 break;
@@ -89,10 +88,12 @@ public class PushEventReceiveController {
             case APPROVAL_MEG:
                 LOGGER.info("事件类型: {}, 说明: 租户 {} 下用户移除", content.getType(), content.getTenantId());
                 break;
-            case DELETE_DIWORKSESSION:
+            case FRONT_LOGOUT:
                 LOGGER.info("事件类型: {}, 说明: 租户 {} 用户注销，信息: {}", content.getType(), content.getTenantId(), content.getContent());
                 break;
-
+            case META_ALTER:
+                LOGGER.info("事件类型: {}, 说明: 租户 {} 元数据修改，信息: {}", content.getType(), content.getTenantId(), content.getContent());
+                break;
             case UNKNOWN:
                 LOGGER.info("未知事件");
                 break;
